@@ -9,15 +9,18 @@ int main()
    double matrix1[MAX][MAX],matrix2[MAX][MAX],matrix3[MAX][MAX];
    char infilename[20],outfilename[20];
    FILE *infile, *outfile;
+   //time
    struct timeval tp_s, tp_e;
+   //time zone
    struct timezone tzp_s, tzp_e;
+   //set matrix value
    for(i=0;i<raw;i++)
       {
       for(j=0;j<col;j++)
          matrix1[1][1]=matrix2[1][1]=matrix3[1][1]=0;
       }
    gettimeofday(&tp_s,&tzp_s);
-   for(x=0;x<3;x++)
+   for(x=0;x<1000;x++)
       {
       sprintf(infilename,"in%d.txt",x+1);
       sprintf(outfilename,"out%d.txt",x+1);
@@ -63,3 +66,6 @@ int main()
    fprintf(outfile,"Total execution time =%ld\n",tp_e.tv_sec-tp_s.tv_sec);
    fclose(outfile);
    }
+//raw is initialized to 0, so the first time it enters the loop, it will be 0, and the loop will not be executed.
+
+//col is initialized to 0, so the first time it enters the loop, it will be 0, and the loop will not be executed.
