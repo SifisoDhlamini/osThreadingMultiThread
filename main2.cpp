@@ -165,8 +165,12 @@ int main()
         fclose(outfile);
     }
     gettimeofday(&tp_e, &tzp_e);
-    printf("%d\n", (tp_e.tv_sec - tp_s.tv_sec) * 1000000 + tp_e.tv_usec - tp_s.tv_usec);
-    return 0;
+    if ((outfile = fopen("time.txt", "w")) == NULL)
+    {
+        perror("out open error~\n");
+    }
+    fprintf(outfile, "Total execution time =%ld\n", tp_e.tv_sec - tp_s.tv_sec);
+    fclose(outfile);
 }
 
-    // Time complexity is O(n^3) and space complexity is O(n^2) where n is the number of rows and columns of the matrix.
+// Time complexity is O(n^3) and space complexity is O(n^2) where n is the number of rows and columns of the matrix.
