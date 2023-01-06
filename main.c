@@ -66,6 +66,5 @@ int main()
    fprintf(outfile,"Total execution time =%ld\n",tp_e.tv_sec-tp_s.tv_sec);
    fclose(outfile);
    }
-//raw is initialized to 0, so the first time it enters the loop, it will be 0, and the loop will not be executed.
 
-//col is initialized to 0, so the first time it enters the loop, it will be 0, and the loop will not be executed.
+//Time complexity is O(n^3) and space complexity is O(n^2).

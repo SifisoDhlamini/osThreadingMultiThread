@@ -124,3 +124,6 @@ int main()
     fclose(outfile);
     return 0;
 }
+
+
+//Time complexity is O(n^3) and space complexity is O(n^2) where n is the number of rows and columns of the matrix.
