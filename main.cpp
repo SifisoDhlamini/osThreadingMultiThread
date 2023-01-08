@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 #define MAX 500
-#define NUM_THREADS 4
+#define NUM_THREADS 5
 
 int raw, col;
 float val;
@@ -143,15 +143,19 @@ int main()
         pthread_t threads[NUM_THREADS];
         thread_data thread_data_array[NUM_THREADS];
         int rows_per_thread = raw / NUM_THREADS;
+        // Create the worker threads
         for (i = 0; i < NUM_THREADS; i++)
         {
+            // Set the start and end rows for each thread
             thread_data_array[i].start_row = i * rows_per_thread;
             thread_data_array[i].end_row = (i + 1) * rows_per_thread;
+            // Create the thread
             pthread_create(&threads[i], NULL, matrix_multiply, (void *)&thread_data_array[i]);
         }
         // Create the input and output threads
         pthread_create(&input_thread, NULL, read_input, (void *)infile);
         pthread_create(&output_thread, NULL, write_output, (void *)outfile);
+
 
         for (i = 0; i < NUM_THREADS; i++)
         {
