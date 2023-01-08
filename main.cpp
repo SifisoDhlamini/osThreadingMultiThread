@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 #define MAX 500
-#define NUM_THREADS 5
+#define NUM_THREADS 10
 
 int raw, col;
 float val;
